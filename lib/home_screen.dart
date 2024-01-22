@@ -67,7 +67,35 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: TabBarView(
           children: [
-           const  Text('Camera'),
+            Container(
+              width: 500,
+              height: 500,
+              color: Colors.teal,
+              child:  Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: Container(
+                      width: 200,
+                      height: 200,
+                      child: const Image(
+                          image: NetworkImage(
+                        'https://cdn.icon-icons.com/icons2/2232/PNG/512/whatsapp_logo_icon_134602.png',
+                      )),
+                    ),
+                  ),
+                  const Text(
+                    'WhatsApp',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const Text('Lets Chat!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),)
+                ],
+              ),
+            ),
             ListView.builder(
                 itemCount: 1000,
                 itemBuilder: (context, index) {
@@ -84,9 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ListView.builder(
                 itemCount: 1000,
                 itemBuilder: (context, index) {
-                  return  ListTile(
+                  return ListTile(
                     title: const Text('John Steve'),
-                    subtitle: index/2==0?const Text('Just Now'):const Text('Today, 37 min ago'),
+                    subtitle: index / 2 == 0
+                        ? const Text('Just Now')
+                        : const Text('Today, 37 min ago'),
                     leading: Container(
                       decoration: BoxDecoration(
                         border: Border.all(
@@ -105,14 +135,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ListView.builder(
                 itemCount: 1000,
                 itemBuilder: (context, index) {
-                  return  ListTile(
+                  return ListTile(
                     title: const Text('John Steve'),
-                    subtitle: index/2==0?const Text('Missed Audio Call'):const Text('Missed Video call'),
+                    subtitle: index / 2 == 0
+                        ? const Text('Missed Audio Call')
+                        : const Text('Missed Video call'),
                     leading: const CircleAvatar(
                       backgroundImage: NetworkImage(
                           'https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
                     ),
-                    trailing: index/2==0?const Icon(Icons.phone): const Icon(Icons.video_call),
+                    trailing: index / 2 == 0
+                        ? const Icon(Icons.phone)
+                        : const Icon(Icons.video_call),
                   );
                 }),
           ],
