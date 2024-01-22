@@ -82,7 +82,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }),
             Text('Status'),
-            Text('Calls'),
+            ListView.builder(
+                itemCount: 1000,
+                itemBuilder: (context, index) {
+                  return  ListTile(
+                    title: const Text('John Steve'),
+                    subtitle: index/2==0?const Text('Missed Audio Call'):const Text('Missed Video call'),
+                    leading: const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                          'https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
+                    ),
+                    trailing: index/2==0?const Icon(Icons.phone): const Icon(Icons.video_call),
+                  );
+                }),
           ],
         ),
       ),
