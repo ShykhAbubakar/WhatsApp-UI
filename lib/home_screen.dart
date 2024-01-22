@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: TabBarView(
           children: [
-            Text('Camera'),
+           const  Text('Camera'),
             ListView.builder(
                 itemCount: 1000,
                 itemBuilder: (context, index) {
@@ -81,7 +81,27 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 }),
-            Text('Status'),
+            ListView.builder(
+                itemCount: 1000,
+                itemBuilder: (context, index) {
+                  return  ListTile(
+                    title: const Text('John Steve'),
+                    subtitle: index/2==0?const Text('Just Now'):const Text('Today, 37 min ago'),
+                    leading: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.greenAccent,
+                          width: 4,
+                        ),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: const CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
+                      ),
+                    ),
+                  );
+                }),
             ListView.builder(
                 itemCount: 1000,
                 itemBuilder: (context, index) {
